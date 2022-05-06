@@ -36,7 +36,11 @@ export const createUnit = (unitCreationData) => {
             "token": `${JSON.parse(localStorage.getItem("token"))}`
         },
         body: JSON.stringify({
-            unitCreationData
+            "unit_name": unitCreationData.unit_name,
+            "unit_content": unitCreationData.unit_content,
+            "unit_content_type": unitCreationData.unit_content_type,
+            "lesson_id": unitCreationData.lesson_id,
+            "instructor_id": unitCreationData.instructor_id
         })
     })
     .then((returnedUnitData) => {

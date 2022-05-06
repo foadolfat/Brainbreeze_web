@@ -11,7 +11,6 @@ const Createmodule = ({setPopup}) => {
         <div>
             <h2>Create Module</h2>
             <form onSubmit={(e)=>{
-                console.log(NavStates.currentClass);
                 ModuleActions.setCreateModuleData({
                     module_name: e.target.module_name.value,
                     module_descrip: e.target.module_descrip.value,

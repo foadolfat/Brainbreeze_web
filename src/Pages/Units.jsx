@@ -1,12 +1,14 @@
 import * as React from 'react';
-// import {Nav} from '../Contexts/NavContext';
 import {Unit} from '../Contexts/UnitContext';
+import {User} from '../Contexts/UserContext';
 import Unitcard from '../Components/Unitcard/Unitcard.jsx';
+import Createunit from '../Components/Unitcard/Createunit.jsx';
 
 
 const Units = () => {
-    // const {states:NavStates} = React.useContext(Nav);
     const {states:UnitStates} = React.useContext(Unit);
+    const {states:UserStates} = React.useContext(User);
+    const [popup, setPopup] = React.useState(false);
     return(
         <div>
             <h2>Units</h2>
@@ -17,6 +19,19 @@ const Units = () => {
                     })
                     :
                     <p>No units found</p>
+            }
+            {
+                UserStates.user.user_type==="instructor" &&
+                <button className="tab-button" onClick={() => {
+                    setPopup(true);
+                }
+                }>
+                    Create Units
+                </button>
+            }
+            {
+                popup &&
+                    <Createunit setPopup={setPopup}/>
             }
         </div>
     )

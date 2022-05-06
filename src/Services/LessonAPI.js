@@ -36,7 +36,12 @@ export const createLesson = (lessonCreationData) => {
             "token": `${JSON.parse(localStorage.getItem("token"))}`
         },
         body: JSON.stringify({
-            lessonCreationData
+            "lesson_id": lessonCreationData.lesson_id,
+            "lesson_name": lessonCreationData.lesson_name,
+            "lesson_descrip": lessonCreationData.lesson_descrip,
+            "module_id": lessonCreationData.module_id,
+            "instructor_id": lessonCreationData.instructor_id,
+            "lesson_index": lessonCreationData.lesson_index
         })
     })
     .then((returnedLessonData) => {

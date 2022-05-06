@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByModuleId} from '../Services/LessonAPI';
+import {findByModuleId, createLesson} from '../Services/LessonAPI';
 import {User} from './UserContext';
 
 export const Lesson = React.createContext();
@@ -14,6 +14,7 @@ const LessonContext = ({children}) => {
     const setLoading = loadActions.setLoading;
     const setError = errorActions.setError;
     const [lessonData, setLessonData] = React.useState(null);
+    const [createLessonData, setCreateLessonData] = React.useState(null);
 
     React.useEffect(() => {
         if(userStates.loggedout) setLessonData(null)
@@ -27,6 +28,24 @@ const LessonContext = ({children}) => {
             setLessonData(parsedStorage);
         }
     } , []);
+
+    React.useEffect(() => {
+        if(createLessonData){
+            setLoading(true);
+            createLesson(createLessonData).then(lessonData => {
+                localStorage.setItem('lesson', JSON.stringify(lessonData));
+                setLoading(false);
+            })
+            .catch(err => {
+                setLoading(false);
+                setError(err);
+            })
+            .finally(() => {
+                setLoading(false)
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [createLessonData]);
 
     React.useEffect(() => {
         if(moduleId){
@@ -48,11 +67,14 @@ const LessonContext = ({children}) => {
         <Lesson.Provider value={{
             states: {
                 lessonData: lessonData,
-                moduleId: moduleId
+                moduleId: moduleId,
+                setModuleId: setModuleId,
+                createLessonData: createLessonData
             },
             actions: {
                 setLessonData: setLessonData,
-                setModuleId: setModuleId
+                setModuleId: setModuleId,
+                setCreateLessonData: setCreateLessonData
             }
         }}>
             {children}

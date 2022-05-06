@@ -40,7 +40,6 @@ export const createModule = (moduleCreationData) => {
         })
     })
     .then((returnedModuleData) => {
-        console.log(returnedModuleData)
         if(returnedModuleData.status===200) return returnedModuleData.json();
         else return {
             "error": returnedModuleData.message

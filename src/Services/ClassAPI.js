@@ -132,7 +132,6 @@ export const signUp = (class_id) => {
         }
     })
     .then((res) => {
-        console.log(res)
         if(res.status===200) return res.json();
         else return {
             "error": res.message

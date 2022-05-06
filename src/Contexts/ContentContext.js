@@ -32,8 +32,8 @@ const ContentContext = ({children}) => {
                 case 'content':
                     content_buffer.type = 'content';
                     content_buffer.name = content.unit_name;
-                    content_buffer.id = content.unit_content;
-                    content_buffer.content = content.unit_content_type;
+                    content_buffer.id = content.unit_content_tyoe;
+                    content_buffer.content = content.unit_content;
                     break;
                 case 'modules':
                     content_buffer.type = 'class';

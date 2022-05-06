@@ -28,7 +28,6 @@ export const createProgress = (unit_id, instructor_id) => {
 }
 
 export const findByUnit = (unit_id, user_id) => {
-    console.log("progress unit route ",typeof(unit_id), typeof(user_id))
     return fetch(`${URL}progress/findByUnit/${unit_id}/${user_id}`, {
         method: "GET",
         headers: {
@@ -38,7 +37,6 @@ export const findByUnit = (unit_id, user_id) => {
         }
     })
     .then((returnedProgressData) => {
-        // console.log("progress unit route ",returnedProgressData)
         if(returnedProgressData.status===201) return returnedProgressData.json();
         else return {
             "error": returnedProgressData.message
