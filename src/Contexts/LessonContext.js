@@ -1,0 +1,62 @@
+import * as React from 'react';
+import {Error} from './ErrorContext';
+import {Load} from './LoadContext';
+import {findByModuleId} from '../Services/LessonAPI';
+import {User} from './UserContext';
+
+export const Lesson = React.createContext();
+
+const LessonContext = ({children}) => {
+    const {actions:errorActions} = React.useContext(Error);
+    const {actions:loadActions} = React.useContext(Load);
+    const {states:userStates} = React.useContext(User);
+    const [moduleId, setModuleId] = React.useState("");
+    const setLoading = loadActions.setLoading;
+    const setError = errorActions.setError;
+    const [lessonData, setLessonData] = React.useState(null);
+
+    React.useEffect(() => {
+        if(userStates.loggedout) setLessonData(null)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [userStates.loggedout]);
+
+    React.useEffect(() => {
+        const storage = localStorage.getItem("lesson");
+        if(storage){
+            const parsedStorage = JSON.parse(storage);
+            setLessonData(parsedStorage);
+        }
+    } , []);
+
+    React.useEffect(() => {
+        if(moduleId){
+            setLoading(true);
+            findByModuleId(moduleId).then(lessonData => {
+                localStorage.setItem('lesson', JSON.stringify(lessonData));
+                setLessonData(lessonData);
+            })
+            .catch(err => {
+                setError(err);
+            }).finally(() => {
+                setLoading(false);
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [moduleId]);
+
+    return(
+        <Lesson.Provider value={{
+            states: {
+                lessonData: lessonData,
+                moduleId: moduleId
+            },
+            actions: {
+                setLessonData: setLessonData,
+                setModuleId: setModuleId
+            }
+        }}>
+            {children}
+        </Lesson.Provider>
+    );
+}
+export default LessonContext;

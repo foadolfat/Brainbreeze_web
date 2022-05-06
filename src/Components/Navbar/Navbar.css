@@ -1,0 +1,10 @@
+.bar{
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.tabs{
+    display: flex;
+    margin: auto;
+}
