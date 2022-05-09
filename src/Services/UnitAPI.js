@@ -21,6 +21,42 @@ const URL = process.env.REACT_APP_API_URL
  */
 
 /**
+ * @param {Object} editUnitData
+ * @returns {Promise<boolean>}
+ * @memberof UnitAPI
+ * @description Edit a Unit
+ * @Author Foad Olfat
+ */
+ export const editUnit = async (editUnitData) => {
+    console.log(editUnitData)
+   return fetch(`${URL}unit/updateUnitContent/${parseInt(editUnitData.unit_id)}`, {
+       method: 'PUT',
+       headers: {
+           "Accept": "application/json",
+           "Content-Type": "application/json",
+           "token": `${JSON.parse(localStorage.getItem("token"))}`
+       },
+       body: JSON.stringify({
+           "unit_content": editUnitData.unit_content,
+           "unit_content_type": editUnitData.unit_content_type
+       })
+   })
+   .then((res) => {
+       console.log(res)
+       if(res.status===200) return res.json();
+       else return {
+           "error": res.message
+       }
+   })
+   .catch((err) => {
+       console.log(err)
+       return {
+           "error":err
+       }
+   });
+}
+
+/**
  * @param {unitCreationData} unitCreationData
  * @return {Promise<returnedUnitData>}
  * @description Creates a new unit
@@ -56,6 +92,13 @@ export const createUnit = (unitCreationData) => {
     })
 }
 
+/**
+ * @param {number} lesson_id
+ * @return {Promise<returnedUnitData>}
+ * @description Gets all units for a lesson
+ * @memberof UnitAPI
+ * @author Foad Olfat
+ */
 export const findByLesson = (lesson_id) => {
     return fetch(`${URL}unit/findByLesson/${lesson_id}`, {
         method: "GET",
@@ -76,4 +119,34 @@ export const findByLesson = (lesson_id) => {
             "error":err
         }
     })
+}
+
+/**
+ * @param {number} unit_id
+ * @return {Promise<returnedUnitData>}
+ * @description Gets a unit by its id
+ * @memberof UnitAPI
+ * @author Foad Olfat
+ */
+export const deleteUnit = (unit_id) => {
+    return fetch(`${URL}unit/delete/${unit_id}`, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        }
+    })
+    .then((returnedUnitData) => {
+        if(returnedUnitData.status===200) return returnedUnitData.json();
+        else return {
+            "error": returnedUnitData.message
+        }
+    })
+    .catch((err) => {
+        return {
+            "error":err
+        }
+    })
+
 }

@@ -3,7 +3,7 @@ import {Module} from '../../Contexts/ModuleContext';
 import {User} from '../../Contexts/UserContext';
 import {Nav} from '../../Contexts/NavContext';
 
-const Createmodule = ({setPopup}) => {
+const Createmodule = ({setFullMenuVisible, fullMenuVisible}) => {
     const {actions:ModuleActions} = React.useContext(Module);
     const {states:UserStates} = React.useContext(User);
     const {states:NavStates} = React.useContext(Nav);
@@ -11,13 +11,14 @@ const Createmodule = ({setPopup}) => {
         <div>
             <h2>Create Module</h2>
             <form onSubmit={(e)=>{
+                e.preventDefault();
                 ModuleActions.setCreateModuleData({
                     module_name: e.target.module_name.value,
                     module_descrip: e.target.module_descrip.value,
                     class_id: NavStates.currentClass,
                     instructor_id: UserStates.user.user_id
                 });
-                setPopup(false);
+                setFullMenuVisible(!fullMenuVisible)
             }}>
                 <label>Module Name</label>
                 <input type="text" name="module_name" placeholder="Module Name" required/>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByLesson, createUnit} from '../Services/UnitAPI';
+import {findByLesson, createUnit, deleteUnit} from '../Services/UnitAPI';
 import {User} from './UserContext';
 
 export const Unit = React.createContext();
@@ -15,6 +15,19 @@ const UnitContext = ({children}) => {
     const setError = errorActions.setError;
     const [unitData, setUnitData] = React.useState(null);
     const [createUnitData, setCreateUnitData] = React.useState(null);
+    const [currentUnit, setCurrentUnit] = React.useState(null);
+
+    const deleteUnitFunc = (unit_id) => {
+        setLoading(true);
+        deleteUnit(unit_id)
+        .then((returnedUnitData) => {
+            if(returnedUnitData.error) {
+                setError(returnedUnitData.error);
+                setLoading(false);
+            }
+        });
+        setLoading(false);
+    }
 
     React.useEffect(() => {
         if(userStates.loggedout) setUnitData(null);
@@ -68,12 +81,14 @@ const UnitContext = ({children}) => {
             states: {
                 unitData: unitData,
                 lesson_id: lesson_id,
-                createUnitData: createUnitData,
+                currentUnit: currentUnit
             },
             actions: {
                 setUnitData: setUnitData,
                 setLessonId: setLessonId,
                 setCreateUnitData: setCreateUnitData,
+                deleteUnitFunc: deleteUnitFunc,
+                setCurrentUnit: setCurrentUnit
             }
         }}>
             {children}

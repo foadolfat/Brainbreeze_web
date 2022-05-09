@@ -3,7 +3,7 @@ import {Unit} from '../../Contexts/UnitContext';
 import {User} from '../../Contexts/UserContext';
 import {Nav} from '../../Contexts/NavContext';
 
-const Createunit = ({setPopup}) => {
+const Createunit = ({setFullMenuVisible, fullMenuVisible}) => {
     const {actions:UnitAction} = React.useContext(Unit);
     const {states:UserStates} = React.useContext(User);
     const {states:NavStates} = React.useContext(Nav);
@@ -11,6 +11,7 @@ const Createunit = ({setPopup}) => {
         <div>
             <h2>Create Unit</h2>
             <form onSubmit={(e)=>{
+                e.preventDefault();
                 UnitAction.setCreateUnitData({
                     unit_name: e.target.unit_name.value,
                     unit_content: e.target.unit_content.value,
@@ -18,7 +19,7 @@ const Createunit = ({setPopup}) => {
                     unit_content_type: e.target.unit_content_type.value,
                     instructor_id: UserStates.user.user_id
                 });
-                setPopup(false);
+                setFullMenuVisible(!fullMenuVisible)
             }}>
 
                 <label>Unit Name</label>

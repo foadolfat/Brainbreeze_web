@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByClassId, createModule} from '../Services/ModuleAPI';
+import {findByClassId, createModule, deleteModule} from '../Services/ModuleAPI';
 import {User} from './UserContext';
 
 export const Module = React.createContext();
@@ -16,6 +16,19 @@ const ModuleContext = ({children}) => {
     const [moduleData, setModuleData] = React.useState(null);
     const [createModuleData ,setCreateModuleData] = React.useState(null);
     const [reload, setReload] = React.useState(false);
+    const [currentModule, setCurrentModule] = React.useState(null);
+
+    const deleteModuleFunc = (module_id) => {
+        setLoading(true);
+        deleteModule(module_id)
+        .then((returnedModuleData) => {
+            if(returnedModuleData.error) {
+                setError(returnedModuleData.error);
+                setLoading(false);
+            }
+        });
+        setLoading(false);
+    }
 
     React.useEffect(() => {
         if(classId){
@@ -86,13 +99,16 @@ const ModuleContext = ({children}) => {
                 moduleData: moduleData,
                 classId: classId,
                 moduleCreateData: createModuleData,
-                reload: reload
+                reload: reload,
+                currentModule: currentModule
             },
             actions: {
                 setModuleData: setModuleData,
                 setClassId: setClassId,
                 setCreateModuleData: setCreateModuleData,
-                setReload: setReload
+                setReload: setReload,
+                deleteModuleFunc: deleteModuleFunc,
+                setCurrentModule: setCurrentModule
             }
         }}>
             {children}

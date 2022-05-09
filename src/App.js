@@ -1,4 +1,5 @@
 import * as React from 'react';
+import 'react-spring-modal/styles.css';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar.jsx';
 import Landing from './Pages/Landing.jsx';
@@ -8,8 +9,9 @@ import Modules from './Pages/Modules.jsx';
 import Profile from './Pages/Profile.jsx';
 import Units from './Pages/Units.jsx';
 import Content from './Pages/Content.jsx';
-import Search from './Pages/Search.jsx';
+import Search from './Pages/Search.jsx'
 import {Nav} from './Contexts/NavContext';
+
 
 function App() {
   const {states:NavState} = React.useContext(Nav);

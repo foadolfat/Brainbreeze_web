@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByModuleId, createLesson} from '../Services/LessonAPI';
+import {findByModuleId, createLesson, deleteLesson} from '../Services/LessonAPI';
 import {User} from './UserContext';
 
 export const Lesson = React.createContext();
@@ -15,6 +15,19 @@ const LessonContext = ({children}) => {
     const setError = errorActions.setError;
     const [lessonData, setLessonData] = React.useState(null);
     const [createLessonData, setCreateLessonData] = React.useState(null);
+    const [currentLesson, setCurrentLesson] = React.useState(null);
+
+    const deleteLessonFunc = (lesson_id) => {
+        setLoading(true);
+        deleteLesson(lesson_id)
+        .then((returnedLessonData) => {
+            if(returnedLessonData.error) {
+                setError(returnedLessonData.error);
+                setLoading(false);
+            }
+        });
+        setLoading(false);
+    }
 
     React.useEffect(() => {
         if(userStates.loggedout) setLessonData(null)
@@ -69,12 +82,16 @@ const LessonContext = ({children}) => {
                 lessonData: lessonData,
                 moduleId: moduleId,
                 setModuleId: setModuleId,
-                createLessonData: createLessonData
+                createLessonData: createLessonData,
+                setCreateLessonData: setCreateLessonData,
+                currentLesson: currentLesson,
             },
             actions: {
                 setLessonData: setLessonData,
                 setModuleId: setModuleId,
-                setCreateLessonData: setCreateLessonData
+                setCreateLessonData: setCreateLessonData,
+                deleteLessonFunc: deleteLessonFunc,
+                setCurrentLesson: setCurrentLesson,
             }
         }}>
             {children}

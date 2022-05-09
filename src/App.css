@@ -1,3 +1,6 @@
+:root {
+  --reach-dialog: 1;
+}
 .App {
   text-align: center;
 }

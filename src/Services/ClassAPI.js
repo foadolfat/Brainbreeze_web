@@ -26,6 +26,76 @@ const URL = process.env.REACT_APP_API_URL
  */
 
 /**
+ * @typedef {Object} editClassData
+ * @property {string} class_name
+ * @property {string} class_description
+ * @property {string} class_id
+ */
+
+/**
+ * @param {Object} editClassData
+ * @returns {Promise<boolean>}
+ * @memberof ClassAPI
+ * @description Edit a class
+ * @Author Foad Olfat
+ */
+export const editClass = async (editClassData) => {
+    return fetch(`${URL}class/update/${editClassData.class_id}`, {
+        method: 'PUT',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        },
+        body: JSON.stringify({
+            "class_name": editClassData.class_name,
+            "class_description": editClassData.class_description
+        })
+    })
+    .then((returnedClassData) => {
+        if(returnedClassData.status===200) return returnedClassData.json();
+        else return {
+            "error": returnedClassData.message
+        }
+    })
+    .catch((err) => {
+        return {
+            "error":err
+        }
+    });
+}
+
+/**
+ * @param {number} class_id
+ * @return {Promise<boolean>}
+ * @description Delete class based on class id
+ * @memberof ClassAPI
+ * @author Foad Olfat
+ */
+export const deleteClass = (class_id) => {
+    return fetch(`${URL}class/delete/${class_id}`, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        }
+    })
+    .then((returnedClassData) => {
+        if(returnedClassData.status===200) return returnedClassData.json();
+        else return {
+            "error": returnedClassData.message
+        }
+    })
+    .catch((err) => {
+        return {
+            "error":err
+        }
+    });
+}
+
+
+/**
  * @param {Object} classCreationData
  * @return {Promise<returnedCreatedClass>}
  * @description Creates a new class

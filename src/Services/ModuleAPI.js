@@ -18,6 +18,78 @@ const URL = process.env.REACT_APP_API_URL
  */
 
 /**
+ * @typedef {Object} editModuleData
+ * @property {string} module_name
+ * @property {string} module_descrip
+ * @property {string} class_id
+ * @property {number} module_id
+ */
+
+/**
+ * @param {Object} editModuleData
+ * @returns {Promise<boolean>}
+ * @memberof ModuleAPI
+ * @description Edit a module
+ * @Author Foad Olfat
+ */
+ export const editModule = async (editModuleData) => {
+    return fetch(`${URL}module/update/${editModuleData.module_id}`, {
+        method: 'PUT',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        },
+        body: JSON.stringify({
+            "module_name": editModuleData.module_name,
+            "module_descrip": editModuleData.module_descrip,
+            "class_id": editModuleData.class_id
+        })
+    })
+    .then((res) => {
+        if(res.status===200) return res.json();
+        else return {
+            "error": res.message
+        }
+    })
+    .catch((err) => {
+        return {
+            "error":err
+        }
+    });
+}
+
+
+/**
+ * @param {number} module_id
+ * @return {Promise<boolean>}
+ * @description Delete module based on module id
+ * @memberof ModuleAPI
+ * @author Foad Olfat
+ */
+export const deleteModule = (module_id) => {
+    return fetch(`${URL}module/delete/${module_id}`, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        }
+    })
+    .then((returnedModuleData) => {
+        if(returnedModuleData.status===200) return returnedModuleData.json();
+        else return {
+            "error": returnedModuleData.message
+        }
+    })
+    .catch((err) => {
+        return {
+            "error":err
+        }
+    });
+}
+
+/**
  * @param {moduleCreationData} moduleCreationData
  * @return {Promise<returnedModuleData>}
  * @description Creates a new module

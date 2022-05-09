@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {findByUser, findByName, signUp, createClass} from '../Services/ClassAPI.js';
+import {findByUser, findByName, signUp, createClass, deleteClass, editClass} from '../Services/ClassAPI.js';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
 import {Nav} from './NavContext';
@@ -20,7 +20,47 @@ const ClassContext = ({children}) => {
     const [listOfClasses, setListOfClasses] = React.useState([]);
     const [signUpClassId, setSignUpClassId] = React.useState("");
     const [createClassData, setCreateClassData] = React.useState(null);
+    const [editClassData, setEditClassData] = React.useState(null);
+    const [currentClass, setCurrentClass] = React.useState(null);
 
+    const editClassFunc = (editClassData) => {
+        setLoading(true);
+        editClass(editClassData)
+        .then((returnedClassData) => {
+            if(returnedClassData.error) {
+                setError(returnedClassData.error);
+                setLoading(false);
+            }
+        });
+        setLoading(false);
+    }
+
+    const deleteClassFunc = (class_id) => {
+        setLoading(true);
+        deleteClass(class_id)
+        .then((returnedClassData) => {
+            if(returnedClassData.error) {
+                setError(returnedClassData.error);
+                setLoading(false);
+            }
+        });
+        setLoading(false);
+    }
+
+    React.useEffect(() => {
+        if(editClassData){
+            setLoading(true);
+            editClass(editClassData)
+            .then((returnedClassData) => {
+                if(returnedClassData.error) {
+                    setError(returnedClassData.error);
+                    setLoading(false);
+                }
+            });
+            setLoading(false);
+        }
+        // eslint-disable-next-line
+    }, [editClassData])
     React.useEffect(() => {
         if(userStates.user.auth) setClassData(null)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,7 +156,9 @@ const ClassContext = ({children}) => {
                 class_name: class_name,
                 listOfClasses: listOfClasses,
                 signUpClassId: signUpClassId,
-                createClassData: createClassData
+                createClassData: createClassData,
+                editClassData: editClassData,
+                currentClass: currentClass
             },
             actions: {
                 setClassData: setClassData,
@@ -124,7 +166,11 @@ const ClassContext = ({children}) => {
                 setClassName: setClassName,
                 setListOfClasses: setListOfClasses,
                 setSignUpClassId: setSignUpClassId,
-                setCreateClassData: setCreateClassData
+                setCreateClassData: setCreateClassData,
+                deleteClassFunc: deleteClassFunc,
+                editClassFunc: editClassFunc,
+                setEditClassData: setEditClassData,
+                setCurrentClass: setCurrentClass
             }
         }}>
             {children}
