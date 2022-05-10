@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {findByUser, findByName, signUp, createClass, deleteClass, editClass} from '../Services/ClassAPI.js';
+import {findByUser, findByName, signUp, createClass, deleteClass, editClass, dropClass} from '../Services/ClassAPI.js';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
 import {Nav} from './NavContext';
@@ -23,12 +23,34 @@ const ClassContext = ({children}) => {
     const [editClassData, setEditClassData] = React.useState(null);
     const [currentClass, setCurrentClass] = React.useState(null);
 
+    const dropClassFunction = (class_id) => {
+        dropClass(class_id).then((returnedClassData) => {
+            if(returnedClassData.error) {
+                setError(returnedClassData.error);
+                setLoading(false);
+            }
+        }).then(() => {
+            setLoading(true);
+            findByUser(parseInt(userStates.user.user_id)).then(classData => {
+                localStorage.setItem('class', JSON.stringify(classData));
+                setClassData(classData);
+            }).catch(err => {
+                setError(err);
+            }
+            ).finally(() => {
+                setLoading(false);
+            }
+            );
+        });
+    }
+
     const classesNotSignUp = (classes) => {
-        let myClasses = classData.map(a => a.class_id);
+        if(classData.length){let myClasses = classData.map(a => a.class_id);
         let result = classes.filter(class_ => {
             return myClasses.includes(class_.class_id) ? false : true;
         })
-        return result
+        return result}
+        else return classes;
     }
 
     const returnUniqueClasses = (classes) => {
@@ -52,7 +74,8 @@ const ClassContext = ({children}) => {
     const searchForClasses = async (class_name) => {
         setLoading(true);
         findByName(class_name).then(classData => {
-            let result = classesNotSignUp(returnUniqueClasses(classData))
+            let unique = returnUniqueClasses(classData)
+            let result = classesNotSignUp(unique)
             localStorage.setItem('class', JSON.stringify(result));
             setListOfClasses(result);
         }
@@ -200,7 +223,6 @@ const ClassContext = ({children}) => {
         if(class_name){
             setLoading(true);
             findByName(class_name).then(classData => {
-                console.log(classData);
                 localStorage.setItem('class', JSON.stringify(classData));
                 setListOfClasses(classData);
             }
@@ -256,7 +278,8 @@ const ClassContext = ({children}) => {
                 editClassFunc: editClassFunc,
                 setEditClassData: setEditClassData,
                 setCurrentClass: setCurrentClass,
-                searchForClasses: searchForClasses
+                searchForClasses: searchForClasses,
+                dropClassFunction: dropClassFunction
             }
         }}>
             {children}

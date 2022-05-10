@@ -32,6 +32,23 @@ const URL = process.env.REACT_APP_API_URL
  * @property {string} class_id
  */
 
+export const dropClass = (class_id) => {
+    return fetch(`${URL}class/drop/${class_id}`, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "token": `${JSON.parse(localStorage.getItem("token"))}`
+        }
+    })
+    .then((result) => {
+        if(result.status===200) return result.json();
+        else return {
+            "error": result.message
+        }
+    });
+}
+
 /**
  * @param {Object} editClassData
  * @returns {Promise<boolean>}
