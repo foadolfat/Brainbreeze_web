@@ -9,6 +9,9 @@ const NavContext = ({children}) => {
     const [currentLesson, setCurrentLesson] = React.useState();
     const [currentUnit, setCurrentUnit] = React.useState();
 
+    const changeNav = (nav) => {
+        setNav(nav);
+    }
     React.useEffect(() => {
         if(localStorage.getItem("nav")){
             setNav(localStorage.getItem("nav"));
@@ -38,7 +41,8 @@ const NavContext = ({children}) => {
                 setCurrentClass: setCurrentClass,
                 setCurrentModule: setCurrentModule,
                 setCurrentLesson: setCurrentLesson,
-                setCurrentUnit: setCurrentUnit
+                setCurrentUnit: setCurrentUnit,
+                changeNav: changeNav
             }
         }}>
             {children}

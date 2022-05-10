@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByClassId, createModule, deleteModule} from '../Services/ModuleAPI';
+import {findByClassId, createModule, deleteModule, editModule} from '../Services/ModuleAPI';
 import {User} from './UserContext';
 
 export const Module = React.createContext();
@@ -17,6 +17,31 @@ const ModuleContext = ({children}) => {
     const [createModuleData ,setCreateModuleData] = React.useState(null);
     const [reload, setReload] = React.useState(false);
     const [currentModule, setCurrentModule] = React.useState(null);
+
+    const editModuleFunc = (editModuleData) => {
+        loadActions.setLoading(true);
+        editModule(editModuleData)
+        .then((res) => {
+            if(res.error) {
+                errorActions.setError(res.error);
+                loadActions.setLoading(false);
+            }
+        }).finally(() => {
+            if(editModuleData.class_id){
+                setLoading(true);
+                findByClassId(editModuleData.class_id).then(moduleData => {
+                    localStorage.setItem('module', JSON.stringify(moduleData));
+                    setModuleData(moduleData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
+        loadActions.setLoading(false);
+    }
 
     const deleteModuleFunc = (module_id) => {
         setLoading(true);
@@ -133,7 +158,8 @@ const ModuleContext = ({children}) => {
                 setCreateModuleData: setCreateModuleData,
                 setReload: setReload,
                 deleteModuleFunc: deleteModuleFunc,
-                setCurrentModule: setCurrentModule
+                setCurrentModule: setCurrentModule,
+                editModuleFunc: editModuleFunc
             }
         }}>
             {children}

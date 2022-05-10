@@ -95,12 +95,9 @@ const ClassContext = ({children}) => {
                 setLoading(false);
             }
         }).then(() => {
-            const storage = localStorage.getItem("user");
-            let user = JSON.parse(storage);
-            if(user){
+            if(userStates.user){
                 setLoading(true);
-                findByUser(parseInt(user.user_id)).then(classData => {
-                    console.log(classData);
+                findByUser(parseInt(userStates.user.user_id)).then(classData => {
                     setClassData(classData);
                 })
                 .catch(err => {
@@ -144,10 +141,31 @@ const ClassContext = ({children}) => {
             setLoading(true);
             editClass(editClassData)
             .then((returnedClassData) => {
+                setLoading(true);
+                findByUser(parseInt(userStates.user.user_id)).then(classData => {
+                    console.log(classData);
+                    setClassData(classData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
                 if(returnedClassData.error) {
                     setError(returnedClassData.error);
                     setLoading(false);
                 }
+            }).finally(() => {
+                setLoading(true);
+                findByUser(parseInt(userStates.user.user_id)).then(classData => {
+                    console.log(classData);
+                    setClassData(classData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
             });
             setLoading(false);
         }
@@ -200,7 +218,6 @@ const ClassContext = ({children}) => {
     }, [createClassData]);
 
     React.useEffect(() => {
-        // CHECK THIS, THERE MIGHT BE AN ISSUE WITH CLASSES REFRESHING PROPERLY
         if(userStates.user.auth){
             const storage = localStorage.getItem("user");
             let user = JSON.parse(storage);
@@ -239,10 +256,20 @@ const ClassContext = ({children}) => {
         if(signUpClassId){
             setLoading(true);
             signUp(signUpClassId).then(res => {
-                if(res.status===200){
-                }
-                else{
-                    setError(res.message);
+                if(userStates.user.auth){
+                    const storage = localStorage.getItem("user");
+                    let user = JSON.parse(storage);
+                    if(user){
+                        setLoading(true);
+                        findByUser(parseInt(user.user_id)).then(classData => {
+                            setClassData(classData);
+                        })
+                        .catch(err => {
+                            setError(err);
+                        }).finally(() => {
+                            setLoading(false);
+                        });
+                    }
                 }
             }
             ).catch(err => {

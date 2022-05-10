@@ -36,7 +36,6 @@ const URL = process.env.REACT_APP_API_URL
  * @Author Foad Olfat
  */
  export const editLesson = async (editLessonData) => {
-    console.log(editLessonData)
    return fetch(`${URL}lesson/update/${parseInt(editLessonData.lesson_id)}`, {
        method: 'PUT',
        headers: {
@@ -51,14 +50,12 @@ const URL = process.env.REACT_APP_API_URL
        })
    })
    .then((res) => {
-       console.log(res)
        if(res.status===200) return res.json();
        else return {
            "error": res.message
        }
    })
    .catch((err) => {
-       console.log(err)
        return {
            "error":err
        }

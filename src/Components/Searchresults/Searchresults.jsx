@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {Class} from '../../Contexts/ClassContext';
 import {User} from '../../Contexts/UserContext';
+import {Nav} from '../../Contexts/NavContext';
 import "./Searchresults.css";
 
 const Searchresults = (props) => {
     const {actions:ClassActions} = React.useContext(Class);
     const {states:UserStates} = React.useContext(User);
+    const {actions:NavActions} = React.useContext(Nav);
 
     return(
         <div className="searchresult">
@@ -23,6 +25,7 @@ const Searchresults = (props) => {
                     {UserStates.user.user_type==="student" &&
                         <button onClick={() => {
                             ClassActions.setSignUpClassId(props.data.class_id);
+                            NavActions.changeNav("classes");
                         }}>
                             Join
                         </button>

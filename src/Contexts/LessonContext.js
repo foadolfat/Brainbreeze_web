@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByModuleId, createLesson, deleteLesson} from '../Services/LessonAPI';
+import {findByModuleId, createLesson, deleteLesson, editLesson} from '../Services/LessonAPI';
 import {User} from './UserContext';
 
 export const Lesson = React.createContext();
@@ -16,6 +16,31 @@ const LessonContext = ({children}) => {
     const [lessonData, setLessonData] = React.useState(null);
     const [createLessonData, setCreateLessonData] = React.useState(null);
     const [currentLesson, setCurrentLesson] = React.useState(null);
+
+    const editLessonFunc = (updateData) => {
+        loadActions.setLoading(true);
+        editLesson(updateData)
+        .then((res) => {
+            if(res.error) {
+                errorActions.setError(res.error);
+                loadActions.setLoading(false);
+            }
+        }).finally(() => {
+            if(updateData.module_id){
+                setLoading(true);
+                findByModuleId(updateData.module_id).then(lessonData => {
+                    localStorage.setItem('lesson', JSON.stringify(lessonData));
+                    setLessonData(lessonData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
+        loadActions.setLoading(false);
+    }
 
     const deleteLessonFunc = (lesson_id) => {
         setLoading(true);
@@ -117,6 +142,7 @@ const LessonContext = ({children}) => {
                 setCreateLessonData: setCreateLessonData,
                 deleteLessonFunc: deleteLessonFunc,
                 setCurrentLesson: setCurrentLesson,
+                editLessonFunc: editLessonFunc
             }
         }}>
             {children}

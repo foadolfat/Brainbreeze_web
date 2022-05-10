@@ -1,32 +1,15 @@
 import * as React from 'react';
 import {Module} from '../../Contexts/ModuleContext';
-import {editModule} from '../../Services/ModuleAPI.js';
-import {Error} from '../../Contexts/ErrorContext';
-import {Load} from '../../Contexts/LoadContext';
 
 const Editmodule = ({setFullMenuVisible, fullMenuVisible}) => {
-    const {states:ModuleStates} = React.useContext(Module);
-    const {actions:errorActions} = React.useContext(Error);
-    const {actions:loadActions} = React.useContext(Load);
-
-    const editModuleFunc = (editModuleData) => {
-        loadActions.setLoading(true);
-        editModule(editModuleData)
-        .then((res) => {
-            if(res.error) {
-                errorActions.setError(res.error);
-                loadActions.setLoading(false);
-            }
-        });
-        loadActions.setLoading(false);
-    }
+    const {states:ModuleStates, actions:ModuleActions} = React.useContext(Module);
 
     return(
         <div>
             <h2>Edit Module</h2>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                editModuleFunc({
+                ModuleActions.editModuleFunc({
                     "module_name": e.target.module_name.value,
                     "module_descrip": e.target.module_descrip.value,
                     "module_id": ModuleStates.currentModule.module_id,

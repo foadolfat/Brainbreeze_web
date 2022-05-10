@@ -1,32 +1,17 @@
 import * as React from 'react';
 import {Lesson} from '../../Contexts/LessonContext';
-import {editLesson} from '../../Services/LessonAPI.js';
-import {Error} from '../../Contexts/ErrorContext';
-import {Load} from '../../Contexts/LoadContext';
+
 
 const Editlesson = ({setFullMenuVisible, fullMenuVisible}) => {
-    const {states:LessonStates} = React.useContext(Lesson);
-    const {actions:errorActions} = React.useContext(Error);
-    const {actions:loadActions} = React.useContext(Load);
+    const {states:LessonStates, actions:LessonActions} = React.useContext(Lesson);
 
-    const editLessonFunc = (editLessonData) => {
-        loadActions.setLoading(true);
-        editLesson(editLessonData)
-        .then((res) => {
-            if(res.error) {
-                errorActions.setError(res.error);
-                loadActions.setLoading(false);
-            }
-        });
-        loadActions.setLoading(false);
-    }
 
     return(
         <div>
             <h2>Edit Class</h2>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                editLessonFunc({
+                LessonActions.editLessonFunc({
                     "lesson_name": e.target.lesson_name.value,
                     "lesson_descrip": e.target.lesson_descrip.value,
                     "module_id": LessonStates.currentLesson.module_id,
