@@ -7,6 +7,7 @@ import {Class} from '../../Contexts/ClassContext';
 import Quizcard from '../Quizcard/Quizcard';
 import YouTube from 'react-youtube';
 import Modal from '../Modal/Modal';
+import "./Contentcard.css";
 
 const Contentcard = (props) => {
     const {states:ContentStates} = React.useContext(Content);
@@ -33,7 +34,7 @@ const Contentcard = (props) => {
     return (
         <div>
             <h1>Content Card</h1>
-            <div>
+            <div >
                 {
                     !showQuiz && ContentStates && ContentStates.currentContent
                     ?

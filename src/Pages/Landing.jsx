@@ -7,15 +7,16 @@ import Signup from '../Components/Signup/Signup';
 const Landing = () => {
     const {states:NavStates} = React.useContext(Nav);
     const {states:UserStates} = React.useContext(User);
+
+  
     return(
-        <div>
+        <div className="landing">
             { NavStates.nav==="landing" &&
                 <div>
-                    <h1>Landing</h1>
                     <div>
                         {
                             !UserStates.user.auth ? 
-                            <div>
+                            <div className="landing">
                                 <Login />
                                 <Signup />
                             </div>
