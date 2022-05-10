@@ -23,6 +23,46 @@ const ClassContext = ({children}) => {
     const [editClassData, setEditClassData] = React.useState(null);
     const [currentClass, setCurrentClass] = React.useState(null);
 
+    const classesNotSignUp = (classes) => {
+        let myClasses = classData.map(a => a.class_id);
+        let result = classes.filter(class_ => {
+            return myClasses.includes(class_.class_id) ? false : true;
+        })
+        return result
+    }
+
+    const returnUniqueClasses = (classes) => {
+        const uniqueIds = new Set();
+
+        const unique = classes.filter(element => {
+            const isDuplicate = uniqueIds.has(element.class_id);
+
+            uniqueIds.add(element.class_id);
+
+            if (!isDuplicate) {
+                return true;
+            }
+
+            return false;
+        });
+
+        return unique;
+    }
+
+    const searchForClasses = async (class_name) => {
+        setLoading(true);
+        findByName(class_name).then(classData => {
+            let result = classesNotSignUp(returnUniqueClasses(classData))
+            localStorage.setItem('class', JSON.stringify(result));
+            setListOfClasses(result);
+        }
+        ).catch(err => {
+            setError(err);
+        }).finally(() => {
+            setLoading(false);
+        });
+    }
+
     const editClassFunc = (editClassData) => {
         setLoading(true);
         editClass(editClassData)
@@ -31,7 +71,22 @@ const ClassContext = ({children}) => {
                 setError(returnedClassData.error);
                 setLoading(false);
             }
-        });
+        }).then(() => {
+            const storage = localStorage.getItem("user");
+            let user = JSON.parse(storage);
+            if(user){
+                setLoading(true);
+                findByUser(parseInt(user.user_id)).then(classData => {
+                    console.log(classData);
+                    setClassData(classData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
         setLoading(false);
     }
 
@@ -43,7 +98,21 @@ const ClassContext = ({children}) => {
                 setError(returnedClassData.error);
                 setLoading(false);
             }
-        });
+        }).then(() => {
+            const storage = localStorage.getItem("user");
+            let user = JSON.parse(storage);
+            if(user){
+                setLoading(true);
+                findByUser(parseInt(user.user_id)).then(classData => {
+                    setClassData(classData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
         setLoading(false);
     }
 
@@ -86,6 +155,21 @@ const ClassContext = ({children}) => {
                 setError(err);
             })
             .finally(() => {
+                if(userStates.user.auth){
+                    const storage = localStorage.getItem("user");
+                    let user = JSON.parse(storage);
+                    if(user){
+                        setLoading(true);
+                        findByUser(parseInt(user.user_id)).then(classData => {
+                            setClassData(classData);
+                        })
+                        .catch(err => {
+                            setError(err);
+                        }).finally(() => {
+                            setLoading(false);
+                        });
+                    }
+                }
                 setLoading(false)
             });
         }
@@ -116,6 +200,7 @@ const ClassContext = ({children}) => {
         if(class_name){
             setLoading(true);
             findByName(class_name).then(classData => {
+                console.log(classData);
                 localStorage.setItem('class', JSON.stringify(classData));
                 setListOfClasses(classData);
             }
@@ -170,7 +255,8 @@ const ClassContext = ({children}) => {
                 deleteClassFunc: deleteClassFunc,
                 editClassFunc: editClassFunc,
                 setEditClassData: setEditClassData,
-                setCurrentClass: setCurrentClass
+                setCurrentClass: setCurrentClass,
+                searchForClasses: searchForClasses
             }
         }}>
             {children}

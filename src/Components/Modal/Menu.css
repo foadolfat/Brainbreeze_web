@@ -54,4 +54,18 @@
   .menu a:focus {
     color: #fff;
   }
+
+  .iteminmenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #276dcf;
+    border-radius: 0px 0px 0px 0px;
+  }
   

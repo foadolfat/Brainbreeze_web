@@ -26,7 +26,20 @@ const ModuleContext = ({children}) => {
                 setError(returnedModuleData.error);
                 setLoading(false);
             }
-        });
+        }).then(() => {
+            if(classId){
+                setLoading(true);
+                findByClassId(classId).then(moduleData => {
+                    localStorage.setItem('module', JSON.stringify(moduleData));
+                    setModuleData(moduleData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
         setLoading(false);
     }
 
@@ -58,6 +71,18 @@ const ModuleContext = ({children}) => {
                 setError(err);
             })
             .finally(() => {
+                if(classId){
+                    setLoading(true);
+                    findByClassId(classId).then(moduleData => {
+                        localStorage.setItem('module', JSON.stringify(moduleData));
+                        setModuleData(moduleData);
+                    })
+                    .catch(err => {
+                        setError(err);
+                    }).finally(() => {
+                        setLoading(false);
+                    });
+                }
                 setLoading(false)
             });
         }

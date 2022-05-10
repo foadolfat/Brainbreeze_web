@@ -6,8 +6,6 @@ import "./Styles.css";
 function Modal({mode}) {
   const [fullMenuVisible, setFullMenuVisible] = useState(false);
 
-
-
   const fullMenuAnimation = useSpring({
     transform: fullMenuVisible ? `translateY(0)` : `translateY(100%)`,
     opacity: fullMenuVisible ? 1 : 0

@@ -14,7 +14,7 @@ const Createclass = ({setFullMenuVisible, fullMenuVisible}) => {
                     class_name: e.target.class_name.value,
                     class_descrip: e.target.class_descrip.value
                 });
-                setFullMenuVisible(!fullMenuVisible)
+                setFullMenuVisible(false)
             }}>
                 <label>Class Name</label>
                 <input type="text" name="class_name" placeholder="Class Name" required/>

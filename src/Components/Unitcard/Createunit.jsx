@@ -19,7 +19,7 @@ const Createunit = ({setFullMenuVisible, fullMenuVisible}) => {
                     unit_content_type: e.target.unit_content_type.value,
                     instructor_id: UserStates.user.user_id
                 });
-                setFullMenuVisible(!fullMenuVisible)
+                setFullMenuVisible(false)
             }}>
 
                 <label>Unit Name</label>

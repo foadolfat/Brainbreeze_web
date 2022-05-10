@@ -82,6 +82,7 @@ export const deleteClass = (class_id) => {
         }
     })
     .then((returnedClassData) => {
+        console.log(returnedClassData.json())
         if(returnedClassData.status===200) return returnedClassData.json();
         else return {
             "error": returnedClassData.message

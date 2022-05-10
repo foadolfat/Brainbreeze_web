@@ -25,7 +25,20 @@ const LessonContext = ({children}) => {
                 setError(returnedLessonData.error);
                 setLoading(false);
             }
-        });
+        }).then(() => {
+            if(moduleId){
+                setLoading(true);
+                findByModuleId(moduleId).then(lessonData => {
+                    localStorage.setItem('lesson', JSON.stringify(lessonData));
+                    setLessonData(lessonData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
         setLoading(false);
     }
 
@@ -54,6 +67,18 @@ const LessonContext = ({children}) => {
                 setError(err);
             })
             .finally(() => {
+                if(moduleId){
+                    setLoading(true);
+                    findByModuleId(moduleId).then(lessonData => {
+                        localStorage.setItem('lesson', JSON.stringify(lessonData));
+                        setLessonData(lessonData);
+                    })
+                    .catch(err => {
+                        setError(err);
+                    }).finally(() => {
+                        setLoading(false);
+                    });
+                }
                 setLoading(false)
             });
         }

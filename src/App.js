@@ -10,6 +10,7 @@ import Profile from './Pages/Profile.jsx';
 import Units from './Pages/Units.jsx';
 import Content from './Pages/Content.jsx';
 import Search from './Pages/Search.jsx'
+import Admincard from './Components/Admincard/Admincard.jsx';
 import {Nav} from './Contexts/NavContext';
 
 
@@ -21,6 +22,7 @@ function App() {
       {NavState.nav === 'landing' && <Landing />}
       {NavState.nav === 'profile' && <Profile />}
       {NavState.nav === 'search' && <Search />}
+      {NavState.nav === 'admin' && <Admincard />}
       <div>
         {
           NavState.nav === 'classes' &&

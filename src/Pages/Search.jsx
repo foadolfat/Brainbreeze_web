@@ -13,13 +13,14 @@ const Search = () => {
             {NavStates.nav==="search" &&
                 <div>
                     <h1>Search</h1>
-                    <form onChange={
+                    <form onSubmit={
                             (e) => {
                                 e.preventDefault();
-                                ClassActions.setClassName(e.target.value);
+                                ClassActions.searchForClasses(e.target.class.value);
                             }
                         }>
                         <input className="searchbar" type="text" name="class" placeholder="Enter class name to search" required/>
+                        <input type="submit" />
                     </form>
                     <div>
                         {

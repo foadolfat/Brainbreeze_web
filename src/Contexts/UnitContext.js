@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Error} from './ErrorContext';
 import {Load} from './LoadContext';
-import {findByLesson, createUnit, deleteUnit} from '../Services/UnitAPI';
+import {findByLesson, createUnit, deleteUnit, editUnit} from '../Services/UnitAPI';
 import {User} from './UserContext';
 
 export const Unit = React.createContext();
@@ -17,6 +17,31 @@ const UnitContext = ({children}) => {
     const [createUnitData, setCreateUnitData] = React.useState(null);
     const [currentUnit, setCurrentUnit] = React.useState(null);
 
+    const editUnitFunc = (updateData) => {
+        setLoading(true);
+        editUnit(updateData)
+        .then((returnedUnitData) => {
+            if(returnedUnitData.error) {
+                setError(returnedUnitData.error);
+                setLoading(false);
+            }
+        }).then(() => {
+            if(lesson_id){
+                setLoading(true);
+                findByLesson(lesson_id).then(unitData => {
+                    localStorage.setItem('unit', JSON.stringify(unitData));
+                    setUnitData(unitData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
+        setLoading(false);
+    }
+    
     const deleteUnitFunc = (unit_id) => {
         setLoading(true);
         deleteUnit(unit_id)
@@ -25,7 +50,20 @@ const UnitContext = ({children}) => {
                 setError(returnedUnitData.error);
                 setLoading(false);
             }
-        });
+        }).then(() => {
+            if(lesson_id){
+                setLoading(true);
+                findByLesson(lesson_id).then(unitData => {
+                    localStorage.setItem('unit', JSON.stringify(unitData));
+                    setUnitData(unitData);
+                })
+                .catch(err => {
+                    setError(err);
+                }).finally(() => {
+                    setLoading(false);
+                });
+            }
+        })
         setLoading(false);
     }
 
@@ -46,6 +84,18 @@ const UnitContext = ({children}) => {
                 setError(err);
             })
             .finally(() => {
+                if(lesson_id){
+                    setLoading(true);
+                    findByLesson(lesson_id).then(unitData => {
+                        localStorage.setItem('unit', JSON.stringify(unitData));
+                        setUnitData(unitData);
+                    })
+                    .catch(err => {
+                        setError(err);
+                    }).finally(() => {
+                        setLoading(false);
+                    });
+                }
                 setLoading(false)
             });
         }
@@ -88,7 +138,8 @@ const UnitContext = ({children}) => {
                 setLessonId: setLessonId,
                 setCreateUnitData: setCreateUnitData,
                 deleteUnitFunc: deleteUnitFunc,
-                setCurrentUnit: setCurrentUnit
+                setCurrentUnit: setCurrentUnit,
+                editUnitFunc: editUnitFunc
             }
         }}>
             {children}

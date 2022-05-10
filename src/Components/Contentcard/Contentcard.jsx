@@ -9,7 +9,7 @@ import Modal from '../Modal/Modal';
 
 const Contentcard = (props) => {
     const {states:ContentStates} = React.useContext(Content);
-    const {states:QuizStates} = React.useContext(Quiz);
+    const {states:QuizStates, actions:QuizActions} = React.useContext(Quiz);
     const {states:NavStates} = React.useContext(Nav);
     const {states:UserStates} = React.useContext(User);
     const [showQuiz, setShowQuiz] = React.useState(false);
@@ -58,7 +58,7 @@ const Contentcard = (props) => {
                     </div>
                     :
                     <div>
-                        <h2>No Content Selected</h2>
+                        
                     </div>
                 }
             </div>
@@ -75,15 +75,37 @@ const Contentcard = (props) => {
                                             return <Quizcard key={index} data={data}/>
                                         })
                                     }
+                                    {UserStates.user.user_type === "instructor" && 
+                                        <div>
+                                            <Modal mode={"quiz"}/>
+                                        </div>
+                                    }
                                 </div>
                                 :
                                 <div>
-                                    <h2>No Quiz Found</h2>
+                                    {UserStates.user.user_type === "instructor" && 
+                                        <div>
+                                            {QuizStates && QuizStates.quizData ?
+                                            <div>
+                                                <Modal mode={"quiz"}/>
+                                            </div>
+                                            :
+                                            <button className="tab-button" onClick={
+                                                ()=>{
+                                                    QuizActions.createAQuiz({
+                                                        "quiz_name": "Quiz 1",
+                                                        "unit_id": ContentStates.currentContent.id,
+                                                        "instructor_id": UserStates.user.user_id
+                                                    })
+                                                }
+                                            }>Create Quiz</button>}
+                                        </div>
+                                    }
                                 </div>
                             }
                         </div>
                     }
-                    <button onClick={() => setShowQuiz(!showQuiz)}>{!showQuiz? "Show Quiz" : "Show Content"}</button>
+                    <button className="tab-button" onClick={() => setShowQuiz(!showQuiz)}>{!showQuiz? "Show Quiz" : "Show Content"}</button>
 
                 </div>
             }

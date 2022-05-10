@@ -1,32 +1,16 @@
 import * as React from 'react';
 import {Unit} from '../../Contexts/UnitContext';
-import {editUnit} from '../../Services/UnitAPI.js';
-import {Error} from '../../Contexts/ErrorContext';
-import {Load} from '../../Contexts/LoadContext';
 
 const Editunit = ({setFullMenuVisible, fullMenuVisible}) => {
-    const {states:UnitStates} = React.useContext(Unit);
-    const {actions:errorActions} = React.useContext(Error);
-    const {actions:loadActions} = React.useContext(Load);
+    const {states:UnitStates, actions:UnitActions} = React.useContext(Unit);
 
-    const editUnitFunc = (editUnitData) => {
-        loadActions.setLoading(true);
-        editUnit(editUnitData)
-        .then((res) => {
-            if(res.error) {
-                errorActions.setError(res.error);
-                loadActions.setLoading(false);
-            }
-        });
-        loadActions.setLoading(false);
-    }
 
     return(
         <div>
             <h2>Edit Class</h2>
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                editUnitFunc({
+                UnitActions.editUnitFunc({
                     "unit_content": e.target.unit_content.value,
                     "unit_content_type": e.target.unit_content_type.value,
                     "unit_id": UnitStates.currentUnit.unit_id

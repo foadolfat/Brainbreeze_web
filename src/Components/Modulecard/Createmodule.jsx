@@ -18,7 +18,7 @@ const Createmodule = ({setFullMenuVisible, fullMenuVisible}) => {
                     class_id: NavStates.currentClass,
                     instructor_id: UserStates.user.user_id
                 });
-                setFullMenuVisible(!fullMenuVisible)
+                setFullMenuVisible(false)
             }}>
                 <label>Module Name</label>
                 <input type="text" name="module_name" placeholder="Module Name" required/>

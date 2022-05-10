@@ -19,7 +19,7 @@ const Createmodule = ({setFullMenuVisible, fullMenuVisible}) => {
                     lesson_index: e.target.lesson_index.value,
                     instructor_id: UserStates.user.user_id
                 });
-                setFullMenuVisible(!fullMenuVisible)
+                setFullMenuVisible(false)
             }}>
                 <label>Lesson Name</label>
                 <input type="text" name="lesson_name" placeholder="Lesson Name" required/>
