@@ -1,0 +1,79 @@
+"filename", "language", "JavaScript", "JavaScript React", "CSS", "XML", "JSON", "Markdown", "HTML", "comment", "blank", "total"
+"/Users/olfat/Code/nerd-web/README.md", "Markdown", 0, 0, 0, 0, 0, 38, 0, 0, 33, 71
+"/Users/olfat/Code/nerd-web/package-lock.json", "JSON", 0, 0, 0, 0, 41764, 0, 0, 0, 1, 41765
+"/Users/olfat/Code/nerd-web/package.json", "JSON", 0, 0, 0, 0, 46, 0, 0, 0, 1, 47
+"/Users/olfat/Code/nerd-web/public/index.html", "HTML", 0, 0, 0, 0, 0, 0, 20, 23, 1, 44
+"/Users/olfat/Code/nerd-web/public/manifest.json", "JSON", 0, 0, 0, 0, 25, 0, 0, 0, 1, 26
+"/Users/olfat/Code/nerd-web/src/App.css", "CSS", 0, 0, 73, 0, 0, 0, 0, 1, 1, 75
+"/Users/olfat/Code/nerd-web/src/App.js", "JavaScript", 121, 0, 0, 0, 0, 0, 0, 18, 4, 143
+"/Users/olfat/Code/nerd-web/src/Assets/solid_check.svg", "XML", 0, 0, 0, 3, 0, 0, 0, 0, 0, 3
+"/Users/olfat/Code/nerd-web/src/Components/Admincard/Admincard.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/olfat/Code/nerd-web/src/Components/Admincard/Admincard.jsx", "JavaScript React", 0, 43, 0, 0, 0, 0, 0, 0, 2, 45
+"/Users/olfat/Code/nerd-web/src/Components/Classcard/Classcard.css", "CSS", 0, 0, 3, 0, 0, 0, 0, 0, 1, 4
+"/Users/olfat/Code/nerd-web/src/Components/Classcard/Classcard.jsx", "JavaScript React", 0, 29, 0, 0, 0, 0, 0, 0, 3, 32
+"/Users/olfat/Code/nerd-web/src/Components/Classcard/Createclass.jsx", "JavaScript React", 0, 25, 0, 0, 0, 0, 0, 0, 3, 28
+"/Users/olfat/Code/nerd-web/src/Components/Classcard/Editclass.jsx", "JavaScript React", 0, 31, 0, 0, 0, 0, 0, 0, 2, 33
+"/Users/olfat/Code/nerd-web/src/Components/Contentcard/Contentcard.css", "CSS", 0, 0, 13, 0, 0, 0, 0, 0, 0, 13
+"/Users/olfat/Code/nerd-web/src/Components/Contentcard/Contentcard.jsx", "JavaScript React", 0, 120, 0, 0, 0, 0, 0, 0, 3, 123
+"/Users/olfat/Code/nerd-web/src/Components/Lessoncard/Createlesson.jsx", "JavaScript React", 0, 34, 0, 0, 0, 0, 0, 0, 1, 35
+"/Users/olfat/Code/nerd-web/src/Components/Lessoncard/Editlesson.jsx", "JavaScript React", 0, 32, 0, 0, 0, 0, 0, 0, 4, 36
+"/Users/olfat/Code/nerd-web/src/Components/Lessoncard/Lessoncard.css", "CSS", 0, 0, 3, 0, 0, 0, 0, 0, 0, 3
+"/Users/olfat/Code/nerd-web/src/Components/Lessoncard/Lessoncard.jsx", "JavaScript React", 0, 29, 0, 0, 0, 0, 0, 0, 2, 31
+"/Users/olfat/Code/nerd-web/src/Components/Login/Login.css", "CSS", 0, 0, 13, 0, 0, 0, 0, 0, 0, 13
+"/Users/olfat/Code/nerd-web/src/Components/Login/Login.jsx", "JavaScript React", 0, 29, 0, 0, 0, 0, 0, 0, 2, 31
+"/Users/olfat/Code/nerd-web/src/Components/Modal/Menu.css", "CSS", 0, 0, 60, 0, 0, 0, 0, 0, 11, 71
+"/Users/olfat/Code/nerd-web/src/Components/Modal/Menu.jsx", "JavaScript React", 0, 101, 0, 0, 0, 0, 0, 0, 5, 106
+"/Users/olfat/Code/nerd-web/src/Components/Modal/Modal.jsx", "JavaScript React", 0, 39, 0, 0, 0, 0, 0, 0, 5, 44
+"/Users/olfat/Code/nerd-web/src/Components/Modal/Styles.css", "CSS", 0, 0, 27, 0, 0, 0, 0, 0, 5, 32
+"/Users/olfat/Code/nerd-web/src/Components/Modulecard/Createmodule.jsx", "JavaScript React", 0, 31, 0, 0, 0, 0, 0, 0, 1, 32
+"/Users/olfat/Code/nerd-web/src/Components/Modulecard/Editmodule.jsx", "JavaScript React", 0, 32, 0, 0, 0, 0, 0, 0, 2, 34
+"/Users/olfat/Code/nerd-web/src/Components/Modulecard/Modulecard.css", "CSS", 0, 0, 3, 0, 0, 0, 0, 0, 0, 3
+"/Users/olfat/Code/nerd-web/src/Components/Modulecard/Modulecard.jsx", "JavaScript React", 0, 29, 0, 0, 0, 0, 0, 0, 2, 31
+"/Users/olfat/Code/nerd-web/src/Components/Navbar/Navbar.css", "CSS", 0, 0, 10, 0, 0, 0, 0, 0, 0, 10
+"/Users/olfat/Code/nerd-web/src/Components/Navbar/Navbar.jsx", "JavaScript React", 0, 38, 0, 0, 0, 0, 0, 0, 2, 40
+"/Users/olfat/Code/nerd-web/src/Components/Quizcard/Answers.jsx", "JavaScript React", 0, 25, 0, 0, 0, 0, 0, 0, 2, 27
+"/Users/olfat/Code/nerd-web/src/Components/Quizcard/Createquiz.jsx", "JavaScript React", 0, 55, 0, 0, 0, 0, 0, 0, 2, 57
+"/Users/olfat/Code/nerd-web/src/Components/Quizcard/Editquiz.jsx", "JavaScript React", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/olfat/Code/nerd-web/src/Components/Quizcard/Quizcard.css", "CSS", 0, 0, 30, 0, 0, 0, 0, 0, 0, 30
+"/Users/olfat/Code/nerd-web/src/Components/Quizcard/Quizcard.jsx", "JavaScript React", 0, 33, 0, 0, 0, 0, 0, 0, 1, 34
+"/Users/olfat/Code/nerd-web/src/Components/Searchresults/Searchresults.css", "CSS", 0, 0, 13, 0, 0, 0, 0, 0, 0, 13
+"/Users/olfat/Code/nerd-web/src/Components/Searchresults/Searchresults.jsx", "JavaScript React", 0, 36, 0, 0, 0, 0, 0, 0, 2, 38
+"/Users/olfat/Code/nerd-web/src/Components/Signup/Signup.css", "CSS", 0, 0, 20, 0, 0, 0, 0, 0, 0, 20
+"/Users/olfat/Code/nerd-web/src/Components/Signup/Signup.jsx", "JavaScript React", 0, 42, 0, 0, 0, 0, 0, 0, 2, 44
+"/Users/olfat/Code/nerd-web/src/Components/Unitcard/Createunit.jsx", "JavaScript React", 0, 34, 0, 0, 0, 0, 0, 0, 2, 36
+"/Users/olfat/Code/nerd-web/src/Components/Unitcard/Editunit.jsx", "JavaScript React", 0, 31, 0, 0, 0, 0, 0, 0, 3, 34
+"/Users/olfat/Code/nerd-web/src/Components/Unitcard/Unitcard.css", "CSS", 0, 0, 8, 0, 0, 0, 0, 0, 0, 8
+"/Users/olfat/Code/nerd-web/src/Components/Unitcard/Unitcard.jsx", "JavaScript React", 0, 47, 0, 0, 0, 0, 0, 1, 2, 50
+"/Users/olfat/Code/nerd-web/src/Components/Usercard/Usercard.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/olfat/Code/nerd-web/src/Components/Usercard/Usercard.jsx", "JavaScript React", 0, 19, 0, 0, 0, 0, 0, 0, 1, 20
+"/Users/olfat/Code/nerd-web/src/Contexts/ClassContext.js", "JavaScript", 290, 0, 0, 0, 0, 0, 0, 6, 20, 316
+"/Users/olfat/Code/nerd-web/src/Contexts/ContentContext.js", "JavaScript", 86, 0, 0, 0, 0, 0, 0, 1, 5, 92
+"/Users/olfat/Code/nerd-web/src/Contexts/ErrorContext.js", "JavaScript", 18, 0, 0, 0, 0, 0, 0, 0, 3, 21
+"/Users/olfat/Code/nerd-web/src/Contexts/LessonContext.js", "JavaScript", 140, 0, 0, 0, 0, 0, 0, 3, 9, 152
+"/Users/olfat/Code/nerd-web/src/Contexts/LoadContext.js", "JavaScript", 18, 0, 0, 0, 0, 0, 0, 0, 3, 21
+"/Users/olfat/Code/nerd-web/src/Contexts/ModuleContext.js", "JavaScript", 155, 0, 0, 0, 0, 0, 0, 4, 10, 169
+"/Users/olfat/Code/nerd-web/src/Contexts/NavContext.js", "JavaScript", 44, 0, 0, 0, 0, 0, 0, 2, 6, 52
+"/Users/olfat/Code/nerd-web/src/Contexts/ProgressContext.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 71, 5, 76
+"/Users/olfat/Code/nerd-web/src/Contexts/QuizContext.js", "JavaScript", 294, 0, 0, 0, 0, 0, 0, 5, 13, 312
+"/Users/olfat/Code/nerd-web/src/Contexts/UnitContext.js", "JavaScript", 137, 0, 0, 0, 0, 0, 0, 3, 10, 150
+"/Users/olfat/Code/nerd-web/src/Contexts/UserContext.js", "JavaScript", 114, 0, 0, 0, 0, 0, 0, 3, 10, 127
+"/Users/olfat/Code/nerd-web/src/Pages/Classes.jsx", "JavaScript React", 0, 27, 0, 0, 0, 0, 0, 0, 2, 29
+"/Users/olfat/Code/nerd-web/src/Pages/Content.jsx", "JavaScript React", 0, 11, 0, 0, 0, 0, 0, 0, 1, 12
+"/Users/olfat/Code/nerd-web/src/Pages/Landing.jsx", "JavaScript React", 0, 31, 0, 0, 0, 0, 0, 0, 3, 34
+"/Users/olfat/Code/nerd-web/src/Pages/Lessons.jsx", "JavaScript React", 0, 27, 0, 0, 0, 0, 0, 0, 3, 30
+"/Users/olfat/Code/nerd-web/src/Pages/Modules.jsx", "JavaScript React", 0, 26, 0, 0, 0, 0, 0, 0, 2, 28
+"/Users/olfat/Code/nerd-web/src/Pages/Profile.jsx", "JavaScript React", 0, 22, 0, 0, 0, 0, 0, 0, 1, 23
+"/Users/olfat/Code/nerd-web/src/Pages/Search.jsx", "JavaScript React", 0, 41, 0, 0, 0, 0, 0, 0, 3, 44
+"/Users/olfat/Code/nerd-web/src/Pages/Units.jsx", "JavaScript React", 0, 27, 0, 0, 0, 0, 0, 0, 2, 29
+"/Users/olfat/Code/nerd-web/src/Services/AdminAPI.js", "JavaScript", 40, 0, 0, 0, 0, 0, 0, 0, 1, 41
+"/Users/olfat/Code/nerd-web/src/Services/Authentication.js", "JavaScript", 53, 0, 0, 0, 0, 0, 0, 36, 6, 95
+"/Users/olfat/Code/nerd-web/src/Services/ClassAPI.js", "JavaScript", 151, 0, 0, 0, 0, 0, 0, 70, 12, 233
+"/Users/olfat/Code/nerd-web/src/Services/LessonAPI.js", "JavaScript", 98, 0, 0, 0, 0, 0, 0, 53, 8, 159
+"/Users/olfat/Code/nerd-web/src/Services/ModuleAPI.js", "JavaScript", 96, 0, 0, 0, 0, 0, 0, 50, 8, 154
+"/Users/olfat/Code/nerd-web/src/Services/ProgressAPI.js", "JavaScript", 68, 0, 0, 0, 0, 0, 0, 1, 4, 73
+"/Users/olfat/Code/nerd-web/src/Services/QuizAPI.js", "JavaScript", 166, 0, 0, 0, 0, 0, 0, 92, 13, 271
+"/Users/olfat/Code/nerd-web/src/Services/UnitAPI.js", "JavaScript", 99, 0, 0, 0, 0, 0, 0, 46, 7, 152
+"/Users/olfat/Code/nerd-web/src/index.js", "JavaScript", 41, 0, 0, 0, 0, 0, 0, 4, 5, 50
+"/Users/olfat/Code/nerd-web/src/reportWebVitals.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"/Users/olfat/Code/nerd-web/src/setupTests.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 4, 1, 6
+"Total", "-", 2242, 1176, 276, 3, 41835, 38, 20, 497, 296, 46383

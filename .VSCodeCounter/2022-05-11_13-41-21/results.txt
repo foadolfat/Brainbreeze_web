@@ -1,0 +1,127 @@
+Date : 2022-05-11 13:41:21
+Directory : /Users/olfat/Code/nerd-web
+Total : 77 files,  45590 codes, 497 comments, 296 blanks, all 46383 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JSON             |          3 |     41,835 |          0 |          3 |     41,838 |
+| JavaScript       |         23 |      2,242 |        472 |        165 |      2,879 |
+| JavaScript React |         33 |      1,176 |          1 |         74 |      1,251 |
+| CSS              |         15 |        276 |          1 |         20 |        297 |
+| Markdown         |          1 |         38 |          0 |         33 |         71 |
+| HTML             |          1 |         20 |         23 |          1 |         44 |
+| XML              |          1 |          3 |          0 |          0 |          3 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                      | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                         |         77 |     45,590 |        497 |        296 |     46,383 |
+| public                                                                    |          2 |         45 |         23 |          2 |         70 |
+| src                                                                       |         72 |      3,697 |        474 |        259 |      4,430 |
+| src/Assets                                                                |          1 |          3 |          0 |          0 |          3 |
+| src/Components                                                            |         39 |      1,167 |          1 |         76 |      1,244 |
+| src/Components/Admincard                                                  |          2 |         43 |          0 |          3 |         46 |
+| src/Components/Classcard                                                  |          4 |         88 |          0 |          9 |         97 |
+| src/Components/Contentcard                                                |          2 |        133 |          0 |          3 |        136 |
+| src/Components/Lessoncard                                                 |          4 |         98 |          0 |          7 |        105 |
+| src/Components/Login                                                      |          2 |         42 |          0 |          2 |         44 |
+| src/Components/Modal                                                      |          4 |        227 |          0 |         26 |        253 |
+| src/Components/Modulecard                                                 |          4 |         95 |          0 |          5 |        100 |
+| src/Components/Navbar                                                     |          2 |         48 |          0 |          2 |         50 |
+| src/Components/Quizcard                                                   |          5 |        143 |          0 |          6 |        149 |
+| src/Components/Searchresults                                              |          2 |         49 |          0 |          2 |         51 |
+| src/Components/Signup                                                     |          2 |         62 |          0 |          2 |         64 |
+| src/Components/Unitcard                                                   |          4 |        120 |          1 |          7 |        128 |
+| src/Components/Usercard                                                   |          2 |         19 |          0 |          2 |         21 |
+| src/Contexts                                                              |         11 |      1,296 |         98 |         94 |      1,488 |
+| src/Pages                                                                 |          8 |        212 |          0 |         17 |        229 |
+| src/Services                                                              |          8 |        771 |        348 |         59 |      1,178 |
++---------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                  | language         | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/olfat/Code/nerd-web/README.md                                      | Markdown         |         38 |          0 |         33 |         71 |
+| /Users/olfat/Code/nerd-web/package-lock.json                              | JSON             |     41,764 |          0 |          1 |     41,765 |
+| /Users/olfat/Code/nerd-web/package.json                                   | JSON             |         46 |          0 |          1 |         47 |
+| /Users/olfat/Code/nerd-web/public/index.html                              | HTML             |         20 |         23 |          1 |         44 |
+| /Users/olfat/Code/nerd-web/public/manifest.json                           | JSON             |         25 |          0 |          1 |         26 |
+| /Users/olfat/Code/nerd-web/src/App.css                                    | CSS              |         73 |          1 |          1 |         75 |
+| /Users/olfat/Code/nerd-web/src/App.js                                     | JavaScript       |        121 |         18 |          4 |        143 |
+| /Users/olfat/Code/nerd-web/src/Assets/solid_check.svg                     | XML              |          3 |          0 |          0 |          3 |
+| /Users/olfat/Code/nerd-web/src/Components/Admincard/Admincard.css         | CSS              |          0 |          0 |          1 |          1 |
+| /Users/olfat/Code/nerd-web/src/Components/Admincard/Admincard.jsx         | JavaScript React |         43 |          0 |          2 |         45 |
+| /Users/olfat/Code/nerd-web/src/Components/Classcard/Classcard.css         | CSS              |          3 |          0 |          1 |          4 |
+| /Users/olfat/Code/nerd-web/src/Components/Classcard/Classcard.jsx         | JavaScript React |         29 |          0 |          3 |         32 |
+| /Users/olfat/Code/nerd-web/src/Components/Classcard/Createclass.jsx       | JavaScript React |         25 |          0 |          3 |         28 |
+| /Users/olfat/Code/nerd-web/src/Components/Classcard/Editclass.jsx         | JavaScript React |         31 |          0 |          2 |         33 |
+| /Users/olfat/Code/nerd-web/src/Components/Contentcard/Contentcard.css     | CSS              |         13 |          0 |          0 |         13 |
+| /Users/olfat/Code/nerd-web/src/Components/Contentcard/Contentcard.jsx     | JavaScript React |        120 |          0 |          3 |        123 |
+| /Users/olfat/Code/nerd-web/src/Components/Lessoncard/Createlesson.jsx     | JavaScript React |         34 |          0 |          1 |         35 |
+| /Users/olfat/Code/nerd-web/src/Components/Lessoncard/Editlesson.jsx       | JavaScript React |         32 |          0 |          4 |         36 |
+| /Users/olfat/Code/nerd-web/src/Components/Lessoncard/Lessoncard.css       | CSS              |          3 |          0 |          0 |          3 |
+| /Users/olfat/Code/nerd-web/src/Components/Lessoncard/Lessoncard.jsx       | JavaScript React |         29 |          0 |          2 |         31 |
+| /Users/olfat/Code/nerd-web/src/Components/Login/Login.css                 | CSS              |         13 |          0 |          0 |         13 |
+| /Users/olfat/Code/nerd-web/src/Components/Login/Login.jsx                 | JavaScript React |         29 |          0 |          2 |         31 |
+| /Users/olfat/Code/nerd-web/src/Components/Modal/Menu.css                  | CSS              |         60 |          0 |         11 |         71 |
+| /Users/olfat/Code/nerd-web/src/Components/Modal/Menu.jsx                  | JavaScript React |        101 |          0 |          5 |        106 |
+| /Users/olfat/Code/nerd-web/src/Components/Modal/Modal.jsx                 | JavaScript React |         39 |          0 |          5 |         44 |
+| /Users/olfat/Code/nerd-web/src/Components/Modal/Styles.css                | CSS              |         27 |          0 |          5 |         32 |
+| /Users/olfat/Code/nerd-web/src/Components/Modulecard/Createmodule.jsx     | JavaScript React |         31 |          0 |          1 |         32 |
+| /Users/olfat/Code/nerd-web/src/Components/Modulecard/Editmodule.jsx       | JavaScript React |         32 |          0 |          2 |         34 |
+| /Users/olfat/Code/nerd-web/src/Components/Modulecard/Modulecard.css       | CSS              |          3 |          0 |          0 |          3 |
+| /Users/olfat/Code/nerd-web/src/Components/Modulecard/Modulecard.jsx       | JavaScript React |         29 |          0 |          2 |         31 |
+| /Users/olfat/Code/nerd-web/src/Components/Navbar/Navbar.css               | CSS              |         10 |          0 |          0 |         10 |
+| /Users/olfat/Code/nerd-web/src/Components/Navbar/Navbar.jsx               | JavaScript React |         38 |          0 |          2 |         40 |
+| /Users/olfat/Code/nerd-web/src/Components/Quizcard/Answers.jsx            | JavaScript React |         25 |          0 |          2 |         27 |
+| /Users/olfat/Code/nerd-web/src/Components/Quizcard/Createquiz.jsx         | JavaScript React |         55 |          0 |          2 |         57 |
+| /Users/olfat/Code/nerd-web/src/Components/Quizcard/Editquiz.jsx           | JavaScript React |          0 |          0 |          1 |          1 |
+| /Users/olfat/Code/nerd-web/src/Components/Quizcard/Quizcard.css           | CSS              |         30 |          0 |          0 |         30 |
+| /Users/olfat/Code/nerd-web/src/Components/Quizcard/Quizcard.jsx           | JavaScript React |         33 |          0 |          1 |         34 |
+| /Users/olfat/Code/nerd-web/src/Components/Searchresults/Searchresults.css | CSS              |         13 |          0 |          0 |         13 |
+| /Users/olfat/Code/nerd-web/src/Components/Searchresults/Searchresults.jsx | JavaScript React |         36 |          0 |          2 |         38 |
+| /Users/olfat/Code/nerd-web/src/Components/Signup/Signup.css               | CSS              |         20 |          0 |          0 |         20 |
+| /Users/olfat/Code/nerd-web/src/Components/Signup/Signup.jsx               | JavaScript React |         42 |          0 |          2 |         44 |
+| /Users/olfat/Code/nerd-web/src/Components/Unitcard/Createunit.jsx         | JavaScript React |         34 |          0 |          2 |         36 |
+| /Users/olfat/Code/nerd-web/src/Components/Unitcard/Editunit.jsx           | JavaScript React |         31 |          0 |          3 |         34 |
+| /Users/olfat/Code/nerd-web/src/Components/Unitcard/Unitcard.css           | CSS              |          8 |          0 |          0 |          8 |
+| /Users/olfat/Code/nerd-web/src/Components/Unitcard/Unitcard.jsx           | JavaScript React |         47 |          1 |          2 |         50 |
+| /Users/olfat/Code/nerd-web/src/Components/Usercard/Usercard.css           | CSS              |          0 |          0 |          1 |          1 |
+| /Users/olfat/Code/nerd-web/src/Components/Usercard/Usercard.jsx           | JavaScript React |         19 |          0 |          1 |         20 |
+| /Users/olfat/Code/nerd-web/src/Contexts/ClassContext.js                   | JavaScript       |        290 |          6 |         20 |        316 |
+| /Users/olfat/Code/nerd-web/src/Contexts/ContentContext.js                 | JavaScript       |         86 |          1 |          5 |         92 |
+| /Users/olfat/Code/nerd-web/src/Contexts/ErrorContext.js                   | JavaScript       |         18 |          0 |          3 |         21 |
+| /Users/olfat/Code/nerd-web/src/Contexts/LessonContext.js                  | JavaScript       |        140 |          3 |          9 |        152 |
+| /Users/olfat/Code/nerd-web/src/Contexts/LoadContext.js                    | JavaScript       |         18 |          0 |          3 |         21 |
+| /Users/olfat/Code/nerd-web/src/Contexts/ModuleContext.js                  | JavaScript       |        155 |          4 |         10 |        169 |
+| /Users/olfat/Code/nerd-web/src/Contexts/NavContext.js                     | JavaScript       |         44 |          2 |          6 |         52 |
+| /Users/olfat/Code/nerd-web/src/Contexts/ProgressContext.js                | JavaScript       |          0 |         71 |          5 |         76 |
+| /Users/olfat/Code/nerd-web/src/Contexts/QuizContext.js                    | JavaScript       |        294 |          5 |         13 |        312 |
+| /Users/olfat/Code/nerd-web/src/Contexts/UnitContext.js                    | JavaScript       |        137 |          3 |         10 |        150 |
+| /Users/olfat/Code/nerd-web/src/Contexts/UserContext.js                    | JavaScript       |        114 |          3 |         10 |        127 |
+| /Users/olfat/Code/nerd-web/src/Pages/Classes.jsx                          | JavaScript React |         27 |          0 |          2 |         29 |
+| /Users/olfat/Code/nerd-web/src/Pages/Content.jsx                          | JavaScript React |         11 |          0 |          1 |         12 |
+| /Users/olfat/Code/nerd-web/src/Pages/Landing.jsx                          | JavaScript React |         31 |          0 |          3 |         34 |
+| /Users/olfat/Code/nerd-web/src/Pages/Lessons.jsx                          | JavaScript React |         27 |          0 |          3 |         30 |
+| /Users/olfat/Code/nerd-web/src/Pages/Modules.jsx                          | JavaScript React |         26 |          0 |          2 |         28 |
+| /Users/olfat/Code/nerd-web/src/Pages/Profile.jsx                          | JavaScript React |         22 |          0 |          1 |         23 |
+| /Users/olfat/Code/nerd-web/src/Pages/Search.jsx                           | JavaScript React |         41 |          0 |          3 |         44 |
+| /Users/olfat/Code/nerd-web/src/Pages/Units.jsx                            | JavaScript React |         27 |          0 |          2 |         29 |
+| /Users/olfat/Code/nerd-web/src/Services/AdminAPI.js                       | JavaScript       |         40 |          0 |          1 |         41 |
+| /Users/olfat/Code/nerd-web/src/Services/Authentication.js                 | JavaScript       |         53 |         36 |          6 |         95 |
+| /Users/olfat/Code/nerd-web/src/Services/ClassAPI.js                       | JavaScript       |        151 |         70 |         12 |        233 |
+| /Users/olfat/Code/nerd-web/src/Services/LessonAPI.js                      | JavaScript       |         98 |         53 |          8 |        159 |
+| /Users/olfat/Code/nerd-web/src/Services/ModuleAPI.js                      | JavaScript       |         96 |         50 |          8 |        154 |
+| /Users/olfat/Code/nerd-web/src/Services/ProgressAPI.js                    | JavaScript       |         68 |          1 |          4 |         73 |
+| /Users/olfat/Code/nerd-web/src/Services/QuizAPI.js                        | JavaScript       |        166 |         92 |         13 |        271 |
+| /Users/olfat/Code/nerd-web/src/Services/UnitAPI.js                        | JavaScript       |         99 |         46 |          7 |        152 |
+| /Users/olfat/Code/nerd-web/src/index.js                                   | JavaScript       |         41 |          4 |          5 |         50 |
+| /Users/olfat/Code/nerd-web/src/reportWebVitals.js                         | JavaScript       |         12 |          0 |          2 |         14 |
+| /Users/olfat/Code/nerd-web/src/setupTests.js                              | JavaScript       |          1 |          4 |          1 |          6 |
+| Total                                                                     |                  |     45,590 |        497 |        296 |     46,383 |
++---------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
